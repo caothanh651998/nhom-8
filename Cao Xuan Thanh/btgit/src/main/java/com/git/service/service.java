@@ -37,8 +37,14 @@ public class service {
 		Employee employee = new Employee();
 		employee.setName(name);
 		employee.setEmail(email);
-		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnorePaths("id").withIgnorePaths("name").withIgnorePaths("email");
+		
+		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnorePaths("id").withIgnorePaths("name").withIgnorePaths("email").withIgnorePaths("diachi");
         return responsitory.findAll(Example.of(employee, exampleMatcher));
 
     }
+	
+	public Employee get(Integer id) {
+		Optional<Employee> em = responsitory.findById(id);
+		return em.get();
+	}
 }

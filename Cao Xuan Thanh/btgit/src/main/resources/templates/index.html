@@ -17,11 +17,14 @@
 		<h5>Nhóm 8</h5>
 	</div>
 	<div class="row">
+			<div id="ajax-response"></div>
+		</div>
+	<div class="row">
 		<div class="col-12 no-padding">
         <form class="form-inline" id="search-form">
 			<input class="form-control mr-sm-2" id="name" type="text" placeholder="Tìm kiếm name" />
 			<input class="form-control mr-sm-2" id="email" type="text" placeholder="Tìm kiếm email" />
-				<button class="btn btn-primary" type="submit" id="btn-search">
+				<button class="btn btn-primary" type="submit" id="btn-search" onclick="searchViaAjax()">
 				<i class="fa fa-search"></i> Search
 				</button>
 		</form>
@@ -34,7 +37,7 @@
 		            <span aria-hidden="true">&times;</span>
 		        </button>
 		    </div>
-            <th:block >
+            <th:block th:unless="${#lists.isEmpty(employee)}">
 			    <div class="table-responsive">
 			        
 			    	<h5>List Employee</h5>
@@ -71,7 +74,10 @@
         </div>
 </div>
 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

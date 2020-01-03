@@ -16,7 +16,7 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name ="id")
-	int Id;
+	int id;
 	
 	@Column(name="name")
 	String name;
@@ -25,20 +25,22 @@ public class Employee {
 	@Column(name="email")
 	String email;
 	
-//	public Employee(int id, String name, String diachi, String email) {
-//		super();
-//		Id = id;
-//		this.name = name;
-//		this.diachi = diachi;
-//		this.email = email;
-//	}
+	public Employee() {
+		super();
+	}
+	public Employee(String name, String diachi, String email) {
+		super();
+		this.name = name;
+		this.diachi = diachi;
+		this.email = email;
+	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -67,7 +69,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [Id=" + Id + ", name=" + name + ", diachi=" + diachi + ", email=" + email + "]";
+		return "Employee [id=" + id + ", name=" + name + ", diachi=" + diachi + ", email=" + email + "]";
 	}
 	
 	

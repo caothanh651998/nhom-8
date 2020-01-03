@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,12 +59,14 @@ public class index {
 		return "redirect:/employee";
 	}
 	
+	@CrossOrigin(value = "*")
 	@RequestMapping("/employee/search")
 	public String search(@RequestParam(required=false,name="name") String name, @RequestParam(required=false, name="email") String email , Model model) {
 		if (StringUtils.isEmpty(name) && StringUtils.isEmpty(email)) {
 			return "redirect:/employee";
 		}
 		model.addAttribute("employee",service.search(name, email));
+		System.out.println(service.search(name, email));
 		return "index";
 	}
 	
